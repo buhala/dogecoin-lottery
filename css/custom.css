@@ -1,0 +1,70 @@
+#content{
+
+	padding:100px;
+	padding-left:3%;
+	padding-right:3%;
+}
+td{
+	padding:5px;
+}
+#header-slogan h1{
+	font-size:36pt;
+	
+}
+#header-slogan h1 b{
+		color:#ffa618;
+}
+#slogan{
+	font-size:20pt;
+	color:#858585;
+	margin:5px;
+	display:inline-block;
+}
+#page{
+	margin-left:2%;
+	margin-right:2%;
+	width:96%;
+	padding:5px;
+	padding-top:0px;
+	padding-bottom:0px;
+	background-color:#e7e7e7;
+	border:1px solid #e7e7e7;
+	margin-top:50px;
+	border-radius:3px;
+	margin-bottom:25px;
+}
+.page-other{
+	padding:5px;
+	margin-top:50px;
+}
+#page .container{
+	padding:0;
+}
+#page .container .row{
+	margin:0 auto;	
+	padding:0;
+}
+.col-md-4{
+	padding:5px;
+}
+.other{
+	height:150%;
+	margin:0;
+	
+	background-color:#f8f8f8;
+}
+.attention{
+	
+	color:#ffa618;
+	font-weight:bold;
+}
+.footer{
+	padding:2px;
+	text-align:center;
+}
+.attention a{
+	color:inherit;
+}
+.attention a:hover{
+	color:inherit;
+}

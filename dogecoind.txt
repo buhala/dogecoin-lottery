@@ -1,0 +1,54 @@
+
+addmultisigaddress <nrequired> <'["key","key"]'> [account]
+backupwallet <destination>
+createrawtransaction [{"txid":txid,"vout":n},...] {address:amount,...}
+decoderawtransaction <hex string>
+dumpprivkey <dogecoinaddress>
+encryptwallet <passphrase>
+getaccount <dogecoinaddress>
+getaccountaddress <account>
+getaddressesbyaccount <account>
+getbalance [account] [minconf=1]
+getblock <hash>
+getblockcount
+getblockhash <index>
+getblocktemplate [params]
+getconnectioncount
+getdifficulty
+getgenerate
+gethashespersec
+getinfo
+getmininginfo
+getnetworkhashps [blocks]
+getnewaddress [account]
+getpeerinfo
+getrawmempool
+getrawtransaction <txid> [verbose=0]
+getreceivedbyaccount <account> [minconf=1]
+getreceivedbyaddress <dogecoinaddress> [minconf=1]
+gettransaction <txid>
+getwork [data]
+getworkex [data, coinbase]
+help [command]
+importprivkey <dogecoinprivkey> [label]
+keypoolrefill
+listaccounts [minconf=1]
+listreceivedbyaccount [minconf=1] [includeempty=false]
+listreceivedbyaddress [minconf=1] [includeempty=false]
+listsinceblock [blockhash] [target-confirmations]
+listtransactions [account] [count=10] [from=0]
+listunspent [minconf=1] [maxconf=999999]
+move <fromaccount> <toaccount> <amount> [minconf=1] [comment]
+sendfrom <fromaccount> <todogecoinaddress> <amount> [minconf=1] [comment] [comment-to]
+sendmany <fromaccount> {address:amount,...} [minconf=1] [comment]
+sendrawtransaction <hex string>
+sendtoaddress <dogecoinaddress> <amount> [comment] [comment-to]
+setaccount <dogecoinaddress> <account>
+setgenerate <generate> [genproclimit]
+setmininput <amount>
+settxfee <amount>
+signmessage <dogecoinaddress> <message>
+signrawtransaction <hex string> [{"txid":txid,"vout":n,"scriptPubKey":hex},...] [<privatekey1>,...] [sighashtype="ALL"]
+stop
+validateaddress <dogecoinaddress>
+verifymessage <dogecoinaddress> <signature> <message>
