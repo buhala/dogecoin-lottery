@@ -1,7 +1,7 @@
 import subprocess,json,random,time,datetime
 bet=1
 
-roundStart=int(time.time())-5000
+roundStart=int(time.time())
 print(roundStart)
 betsStart=open("round",'r').read()
 open("round",'w').write(str(roundStart))
