@@ -1,6 +1,7 @@
 <?php
 include 'functions.php';
 top();
+$minimum=file_get_contents('/home/dogecoin/round');
 exec('echo password | sudo -S -u dogecoin dogecoind listtransactions temp 5000 2>&1',$output);
 $json=json_decode(implode($output,''));
 echo '<div class="page-other">';
@@ -24,11 +25,17 @@ foreach($transactions as $t){
 		break;
 	}
 }
+if($i==0){
+	echo 'No transactions have been made this round!';
+}
+
+$award_official=0.3*(int)$award;
+$award_official++;
+
 $odds=(int)$award.':1';
-$award=0.3*(int)$award;
 echo '</pre>';
 echo '<h1 style="text-align:center">Stats</h1>';
-echo '<h4><table style="margin:0 auto;" border="1"><tr><td>Maximum award</td><td>'.$award.'</td></tr><tr><td>Chance of winning if you bet 1 doge</td><td>'.$odds.'</td></tr></table></h4>';
+echo '<h4><table style="margin:0 auto;" border="1"><tr><td>Maximum award</td><td>'.$award_official.'</td></tr><tr><td>Chance of winning if you bet 1 doge</td><td>'.$odds.'</td></tr></table></h4>';
 echo '<center>(betting 2 will double your chance, betting 3 will tripple it, etc. <span class="attention"><a href="about.php#info">More info.</a></span>)<hr></center>';
 footer();
 echo '</div>';
