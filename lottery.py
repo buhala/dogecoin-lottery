@@ -11,8 +11,10 @@ rs=json.loads(o)
 tickets=[]
 prize=0
 etsStart=0
+ticketCount=0
 for i in rs:
 	if i['category']=='receive' and i['time']>int(betsStart) and i['confirmations']>0:
+		ticketCount+=1
 		raw=subprocess.check_output(['dogecoind','getrawtransaction',i['txid']]) 
 		formatted=json.loads(subprocess.check_output(['dogecoind','decoderawtransaction',raw]).decode("utf8"))
 		address=formatted['vout'][0]['scriptPubKey']['addresses'][0]; #Weird transactions are not supported.
@@ -30,12 +32,12 @@ for i in rs:
 		#print(address)
 		#print(amount)
 #print(rs)
-print(tickets)
+#print(tickets)
 draws=(80,2,3)
 i=0
 print("Max prize:"+str(prize))
 
-if len(tickets)>0:
+if len(tickets)>0 and ticketCount>1:
 	file=open('/var/www/log','a')
 	file.write("== Confirmed bets from "+datetime.datetime.fromtimestamp(int(betsStart)).strftime('%Y-%m-%d %H:%M:%S')+" to "+datetime.datetime.fromtimestamp(roundStart).strftime('%Y-%m-%d %H:%M:%S')+" ==")
 	file.write("\nWinners:\n");
@@ -49,5 +51,11 @@ if len(tickets)>0:
 		subprocess.call(['dogecoind','sendtoaddress',tickets[winner],str(award)])	
 		i+=1
 	file.close();
+elif ticketCount==1:
+	print("No winners this round, returning transactions")
+	file=open('/var/www/log','a')
+	file.write("\nOnly one bet, refunding.")
+	subprocess.call(['dogecoind','sendtoaddress',tickets[0],str(prize)])
+	#Man, I hope this doesn't break everything.
 else:
 	print("Noone bet this round :(")
